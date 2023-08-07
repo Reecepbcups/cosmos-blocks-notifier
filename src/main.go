@@ -23,6 +23,8 @@ func main() {
 
 	for _, upgrade := range upgrades {
 		u := upgrade
+
+		// TODO: on a per upgrade basis
 		var startTime time.Time
 
 		go func() {
@@ -41,7 +43,7 @@ func main() {
 					continue
 				}
 
-				if height >= u.UpgradeHeight {
+				if height-1 >= u.UpgradeHeight {
 					if height > u.UpgradeHeight+10 {
 						fmt.Printf("Too late to start for %v %d\n", u.Network, height)
 						time.Sleep(5 * time.Minute)
