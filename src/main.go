@@ -43,7 +43,7 @@ func main() {
 					continue
 				}
 
-				if height-1 >= u.UpgradeHeight {
+				if height-1 > u.UpgradeHeight {
 					if height > u.UpgradeHeight+10 {
 						fmt.Printf("Too late to start for %v %d\n", u.Network, height)
 						time.Sleep(5 * time.Minute)
